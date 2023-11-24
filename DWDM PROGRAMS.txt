@@ -1,0 +1,148 @@
+1...age=c(5,10,17,5,35,65,95)
+frequency=c(200,450,300,1500,700,44)
+p1=median(frequency)
+p1
+p2=median(age)
+p2
+
+
+2...age <- c(13, 15, 16, 16, 19, 20, 20, 21, 22, 22, 25, 25, 25, 25, 30, 33, 33, 35, 35, 35, 35, 36, 40, 45, 46, 52, 70)
+mean <- mean(age)
+median <- median(age)
+modality <- length(unique(age))
+Q1 <- quantile(age,0.25)
+Q3 <- quantile(age,0.75)
+mode <- as.numeric(names(sort(table(age),decreasing = TRUE)[1]))
+midrange <- (min(age)+max(age))/2
+print(mean)
+print(median)
+print(mode)
+print(midrange)
+print(Q1)
+print(Q3)
+
+
+
+3....data <- c(200, 300, 400, 600, 1000 )
+mean <- mean(data)
+median <- median(data)
+sd <- sd(data)
+min <- min(data)
+max <- max(data)
+min_max <- (data-min)/(max-min)
+z_score <- (data-mean)/sd
+#for printing results
+cat(min_max,"\n")
+cat(z_score,"\n")
+
+
+
+4....data <- c(11,13,13,15,15,16,19,20,20,20,21,21,22,23,24,30,40,45,45,45,71,72,73,75)
+num_bin <- 4
+bin_width<- (max(data)-min(data))/num_bin
+bin_breaks <- seq(min(data),max(data)+bin_width,by = bin_width)
+binned_mean <- tapply(data,cut(data,breaks=bin_breaks),mean)
+binned_median <- tapply(data,cut(data,breaks=bin_breaks),median)
+binned_boundaries <- as.numeric(cut(data,breaks = bin_breaks))
+print(binned_mean)
+
+
+
+5......age <- c(23,23,27,27,39,41,47,49,50,52,54,54,56,57,58,58,60,61)
+fat <- c(9.5,26.5,7.8,17.8,31.4,25.9,27.4,27.2,31.2,34.6,42.5,28.8,33.4,30.2,34.1,32.9,41.2,35.7)
+mean_age <- mean(age)
+median_age <- median(age)
+sd_age <- sd(age)
+mean_fat <- mean(fat)
+median_fat <- median(fat)
+sd_fat <- sd(fat)
+cat(mean_age,"\n")
+cat(median_age,"\n")
+cat(sd_age,"\n")
+cat(mean_fat,"\n")
+cat(median_fat,"\n")
+cat(sd_fat,"\n")
+par(mfrow=c(1,2))
+boxplot(age,main="Age",ylab="age(years)",col="lightgreen")
+boxplot(age,main="fat",ylab="fat",col="lightblue")
+qqnorm(age,main="Q-Q plot for Age")
+qqline(age)
+qqnorm(fat,main="Q-Q plot for fat")
+qqline(fat)
+plot(age,fat,main="sactterplot",xlab="age(years)",ylab="fat",pch=19)
+
+
+
+
+6...v<-c(23,23,27,27,39,41,47,49,50,52,54,54,56,57,58,58,60,61)
+min<-0
+max<-1
+#min_max
+min_max=((35-min(v))/(max(v)-min(v)))
+print(min_max)
+#z-score
+m=mean(v)
+s<-12.94
+z_score=(35-m)/s
+print(z_score)
+#decimal scaling
+m<-35
+j=max(m)<1
+decimal_scaling=m/10^j
+print(decimal_scaling)
+
+
+7....pencils <- c(9, 25, 23, 12, 11, 6, 7, 8, 9, 10)
+mean_value <- mean(pencils)
+median_value <- median(pencils)
+mode_value <- as.numeric(names(sort(table(pencils), decreasing = TRUE)[1]))
+print(paste("Mean:", mean_value))
+print(paste("Median:", median_value))
+print(paste("Mode:", mode_value))
+
+
+8....x <- c(4,1,5,7,10,2,50,25,90,36)
+y <- c(12,5,13,19,31,7,153,72,275,110)
+plot(x,y,main="Mobile sale",xlab="number of mobile phones sold",ylab="money",pch=19)
+
+
+
+9.....marks <- c(55, 60, 71, 63, 55, 65, 50, 55, 58, 59, 61, 63, 65, 67, 71, 72, 75)
+num_bins <- 3
+bins_eq_frequency <- cut(marks, breaks = num_bins, labels = FALSE)
+hist(marks, breaks = num_bins, col = "red", xlab = "Marks", main = "Equal-Frequency (Equi-Depth) Partitioning")
+marks <- c(55, 60, 71, 63, 55, 65, 50, 55, 58, 59, 61, 63, 65, 67, 71, 72, 75)
+bin_mean <- tapply(data, cut(data, num_bins), mean)
+smoothed_data_by_mean <- unname(bin_mean[as.character(cut(data, num_bins))])
+bin_median <- tapply(data, cut(data, num_bins), median)
+smoothed_data_by_median <- unname(bin_median[as.character(cut(data, num_bins))])
+bin_boundaries <- tapply(data, cut(data, num_bins), function(x) c(min(x), max(x)))
+smoothed_data_by_boundaries <- unlist(bin_boundaries[as.character(cut(data, num_bins))])
+print("Original data:")
+print(data)
+print("Smoothed data by bin mean:")
+print(smoothed_data_by_mean)
+print("Smoothed data by bin median:")
+print(smoothed_data_by_median)
+print("Smoothed data by bin boundaries:")
+print(smoothed_data_by_boundaries)
+
+
+10...data <- c(78.3, 81.8, 82, 74.2, 83.4, 84.5, 82.9, 77.5, 80.9, 70.6 )
+sd<- sd(data)
+IQR <- IQR(data)
+print(sd)
+print(IQR)
+
+
+
+11....age <- c(13, 15, 16, 16, 19, 20, 20, 21, 22, 22, 25, 25, 25, 25, 30, 33, 33, 35, 35, 35, 35, 36, 40, 45, 46, 52, 70)
+mean <- mean(age)
+sd <- sd(age)
+Q1 <- quantile(age,0.25)
+Q3 <- quantile(age,0.75)
+print(mean)
+print(sd)
+print(Q1)
+print(Q3)
+
